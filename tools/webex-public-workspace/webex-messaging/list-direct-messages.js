@@ -13,7 +13,7 @@ const executeFunction = async ({ parentId, personId, personEmail }) => {
   try {
     // Construct the URL with query parameters
     const url = new URL(getWebexUrl('/messages/direct'));
-    url.searchParams.append('parentId', parentId);
+    if (parentId) url.searchParams.append('parentId', parentId);
 
     // Add either personId OR personEmail, not both
     if (personId) {
